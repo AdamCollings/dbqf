@@ -64,8 +64,9 @@ namespace Sandbox
             using (XmlReader reader = XmlReader.Create(@"E:\chinook.proj.xml", rs))
                 p = assembler.Restore((ProjectDTO)serializer.Deserialize(reader));
 
-            var validator = new ConfigurationValidation(p.Configuration, new SqlConnection(p.Connections[0].ConnectionString));
-            validator.Validate(true);
+            //var validator = new ConfigurationValidation(p.Configuration, new SqlConnection(p.Connections[0].ConnectionString));
+            var validator = new ConfigurationValidation(new dbqf.AssetAsyst.AssetAsystConfiguration(), new SqlConnection(@"Server=(local)\sql2012;Database=AMS_Pittsh;Trusted_Connection=True;"));
+            validator.Validate();
 
             Console.WriteLine("\nDone.");
             Console.ReadKey();
