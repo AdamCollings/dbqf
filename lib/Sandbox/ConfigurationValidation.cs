@@ -186,7 +186,12 @@ namespace Sandbox
             using (var cmd = _conn.CreateCommand())
             {
                 gen.UpdateCommand(cmd);
-                return cmd.ExecuteNonQuery();
+
+                System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter((System.Data.SqlClient.SqlCommand)cmd); //we are now tieing ourselves to SQL
+                System.Data.DataTable tbl = new System.Data.DataTable();
+                adapter.Fill(tbl);
+
+                return tbl.Rows.Count;
             }
         }
 
@@ -195,7 +200,11 @@ namespace Sandbox
             using (var cmd = _conn.CreateCommand())
             {
                 cmd.CommandText = sql;
-                return cmd.ExecuteNonQuery();
+                System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter((System.Data.SqlClient.SqlCommand)cmd); //we are now tieing ourselves to SQL
+                System.Data.DataTable tbl = new System.Data.DataTable();
+                adapter.Fill(tbl);
+
+                return tbl.Rows.Count;
             }
         }
 
@@ -204,7 +213,12 @@ namespace Sandbox
             using (var cmd = _conn.CreateCommand())
             {
                 generator.UpdateCommand(cmd);
-                return cmd.ExecuteNonQuery();
+
+                System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter((System.Data.SqlClient.SqlCommand)cmd); //we are now tieing ourselves to SQL
+                System.Data.DataTable tbl = new System.Data.DataTable();
+                adapter.Fill(tbl);
+
+                return tbl.Rows.Count;
             }
 
         }

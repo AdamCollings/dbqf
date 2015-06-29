@@ -65,7 +65,7 @@ namespace Sandbox
                 p = assembler.Restore((ProjectDTO)serializer.Deserialize(reader));
 
             //var validator = new ConfigurationValidation(p.Configuration, new SqlConnection(p.Connections[0].ConnectionString));
-            var validator = new ConfigurationValidation(new dbqf.AssetAsyst.AssetAsystConfiguration(), new SqlConnection(@"Server=(local)\sql2012;Database=AMS_Pittsh;Trusted_Connection=True;"));
+             var validator = new ConfigurationValidation(new dbqf.AssetAsyst.AssetAsystConfiguration(), new SqlConnection(@"Server=(local)\sql2012;Database=AMS_Pittsh;Trusted_Connection=True;"));
             validator.Validate();
 
             Console.WriteLine("\nDone.");
