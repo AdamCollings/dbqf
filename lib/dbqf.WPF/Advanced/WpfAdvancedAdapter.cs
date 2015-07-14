@@ -62,11 +62,14 @@ namespace dbqf.WPF.Advanced
 
         protected override AdvancedPartNode CreateNode()
         {
+            if (UIElement != null && UIElement.GetValues() == null)
+                return null;
+
             return new WpfAdvancedPartNode()
             {
                 SelectedPath = _pathCombo.SelectedPath,
                 SelectedBuilder = SelectedBuilder,
-                Values = this.UIElement.GetValues()
+                Values = (UIElement != null ? UIElement.GetValues() : null)
             };
         }
 

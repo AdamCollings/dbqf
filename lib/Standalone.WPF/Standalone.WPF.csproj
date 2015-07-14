@@ -37,7 +37,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -95,6 +95,7 @@
       <DependentUpon>RetrieveFieldsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RetrieveFieldsViewAdapter.cs" />
+    <Compile Include="Display\WpfAdvancedAdapter.cs" />
     <Compile Include="Display\WpfStandardAdapter.cs" />
     <Compile Include="Installers\ApplicationInstaller.cs" />
     <Compile Include="Installers\DataInstaller.cs" />
